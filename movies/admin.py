@@ -2,6 +2,8 @@ from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
@@ -10,6 +12,8 @@ from .models import Category, Genre, Movie, MovieShots, Actor, Rating, RatingSta
 
 class MovieAdminForm(forms.ModelForm):
     """Форма с виджетом ckeditor"""
+    title = RichTextField(blank=True, null=True)
+    content = RichTextUploadingField(blank=True, null=True)
     #description = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
 
     class Meta:

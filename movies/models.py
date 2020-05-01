@@ -54,7 +54,7 @@ class Movie(models.Model):
     """Фильм"""
     title = models.CharField("Название", max_length=100)
     tagline = models.CharField("Слоган", max_length=100, default='')
-    description = models.TextField("Описание", default="Описание")
+    description = models.TextField("Описание", default='')
     poster = models.ImageField("Постер", upload_to="movies/")
     year = models.PositiveSmallIntegerField("Дата выхода", default=2019)
     country = models.CharField("Страна", max_length=30)
@@ -63,7 +63,7 @@ class Movie(models.Model):
     actors = models.ManyToManyField(
         Actor, verbose_name="актеры", related_name="film_actor")
     genres = models.ManyToManyField(Genre, verbose_name="жанры")
-    world_premiere = models.DateField("Примьера в мире", default=date.today)
+    world_premiere = models.DateField("Прeмьера в мире", default=date.today)
     budget = models.PositiveIntegerField("Бюджет", default=0,
                                          help_text="указывать сумму в долларах")
     fees_in_usa = models.PositiveIntegerField(
@@ -138,7 +138,6 @@ class Rating(models.Model):
         verbose_name = "Рейтинг"
         verbose_name_plural = "Рейтинги"
         
-
 
 class Review(models.Model):
     """Отзывы"""
