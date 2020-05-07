@@ -21,6 +21,7 @@ from .yasg import urlpatterns as doc_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/auth/oauth/', include('rest_framework_social_oauth2.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('auth/', include('djoser.urls')),
