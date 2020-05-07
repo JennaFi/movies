@@ -85,3 +85,8 @@ class CreateRatingSerializer(serializers.ModelSerializer):
             defaults={'star': validated_data.get("star")}
         )
         return rating
+
+
+class SocialSerializer(serializers.Serializer):
+    provider = serializers.CharField(max_length=255, required=True)
+    access_token = serializers.CharField(max_length=4096, required=True, trim_whitespace=True)
